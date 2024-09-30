@@ -49,7 +49,7 @@ Add a search functionality to find tasks by keywords or priority.
 
 -----
 
-### Connect to Your EC2 Instance
+#### Connect to Your EC2 Instance
 
 1. Connect via SSH: Open a terminal and run the following command ```ssh -i "your-key.pem" ec2-user@your-ec2-public-ip```
 ```
