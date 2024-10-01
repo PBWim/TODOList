@@ -1,0 +1,32 @@
+name: Deploy to EC2
+
+# This specifies that the workflow will run whenever you push changes to the main branch.
+on:
+  push:
+    branches:
+      - main
+
+# Defines the steps that GitHub Actions will execute.
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+# Uses a GitHub Action to add your SSH private key for authentication.
+    - name: Add SSH key
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
+
+# This block connects to your EC2 instance, navigates to your application directory, pulls the latest code, builds the application, and runs it.
+    - name: SSH into EC2 and deploy
+      run: |
+        ssh -o StrictHostKeyChecking=no ec2-user@13.229.135.157 << 'EOF'
+          cd /TODOList/TODOList/TODOList
+          git pull origin main
+          dotnet build
+          dotnet run
+        EOF
