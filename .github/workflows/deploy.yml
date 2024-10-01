@@ -24,8 +24,8 @@ jobs:
 # This block connects to your EC2 instance, navigates to your application directory, pulls the latest code, builds the application, and runs it.
     - name: SSH into EC2 and deploy
       run: |
-        ssh -o StrictHostKeyChecking=no ec2-user@13.229.135.157 << 'EOF'
-          cd TODOList/TODOList/TODOList
+        ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USER_PUBLICAPI }} << 'EOF'
+          cd ${{ secrets.EC2_PATH }}
           git pull origin main
           dotnet build
           dotnet run

@@ -10,6 +10,7 @@ public class Program
         bool running = true;
         while (running)
         {
+            Console.WriteLine("----TODO List Manager----");
             Console.WriteLine("1. Add Task");
             Console.WriteLine("2. View Tasks");
             Console.WriteLine("3. Update Task");
@@ -37,6 +38,7 @@ public class Program
                     break;
                 default:
                     Console.WriteLine("Invalid option, try again.");
+                    running = false;
                     break;
             }
         }
