@@ -25,7 +25,7 @@ jobs:
     - name: SSH into EC2 and deploy
       run: |
         ssh -o StrictHostKeyChecking=no ec2-user@13.229.135.157 << 'EOF'
-          cd /TODOList/TODOList/TODOList
+          cd TODOList/TODOList/TODOList
           git pull origin main
           dotnet build
           dotnet run
