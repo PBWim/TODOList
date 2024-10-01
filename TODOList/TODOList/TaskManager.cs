@@ -4,8 +4,8 @@ namespace TODOList
 {
     public class TaskManager
     {
-        private List<Task> tasks = new List<Task>();
-        private string filePath = "tasks.json";
+        private List<Task> tasks = new();
+        private readonly string filePath = "tasks.json";
 
         public void AddTask()
         {
